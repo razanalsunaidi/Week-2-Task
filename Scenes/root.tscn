@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://e1u2pfdroist"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_sgc40"]
+[ext_resource type="PackedScene" uid="uid://23yjnlx5cg5c" path="res://Scenes/obstacle.tscn" id="2_kerue"]
+[ext_resource type="PackedScene" uid="uid://dqpcxvrqpirx8" path="res://Scenes/door.tscn" id="3_e1m5k"]
+[ext_resource type="PackedScene" uid="uid://byobex6v0capf" path="res://Scenes/level_2.tscn" id="4_h06fy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iijt6"]
+
+[node name="Root" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(158, 479)
+scale = Vector2(4.23737, 4.60852)
+script = ExtResource("1_sgc40")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_iijt6")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="Obstacle" parent="." instance=ExtResource("2_kerue")]
+position = Vector2(175, 613)
+
+[node name="Obstacle2" parent="." instance=ExtResource("2_kerue")]
+position = Vector2(603, 506)
+
+[node name="Obstacle3" parent="." instance=ExtResource("2_kerue")]
+position = Vector2(993, 358)
+
+[node name="Door" parent="." instance=ExtResource("3_e1m5k")]
+position = Vector2(962, 287)
+next_scene = ExtResource("4_h06fy")

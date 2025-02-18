@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://scvap8gh416r"]
+
+[node name="Label" type="Label"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -24.5
+offset_right = 157.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congratulations!
+We've just made our first game in Godot."
+horizontal_alignment = 1
