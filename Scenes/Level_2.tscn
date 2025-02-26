@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://cceaddgw23mex"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_aeepc"]
+[ext_resource type="PackedScene" uid="uid://23yjnlx5cg5c" path="res://Scenes/obstacle.tscn" id="2_snd6g"]
+[ext_resource type="PackedScene" uid="uid://dqpcxvrqpirx8" path="res://Scenes/door.tscn" id="3_bmqqe"]
+[ext_resource type="PackedScene" uid="uid://bk45efxkx6t7j" path="res://kill_zone.tscn" id="4_r1mer"]
+[ext_resource type="Script" path="res://Scenes/door_2.gd" id="5_3uuvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arkil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xr3t"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(158, 479)
+scale = Vector2(4.23737, 4.60852)
+script = ExtResource("1_aeepc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_arkil")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Obstacle" parent="." instance=ExtResource("2_snd6g")]
+position = Vector2(175, 613)
+
+[node name="Obstacle2" parent="." instance=ExtResource("2_snd6g")]
+position = Vector2(165, 379)
+
+[node name="Obstacle3" parent="." instance=ExtResource("2_snd6g")]
+position = Vector2(597, 501)
+
+[node name="Door" parent="." instance=ExtResource("3_bmqqe")]
+visible = false
+position = Vector2(734, 395)
+
+[node name="KillZone" parent="." instance=ExtResource("4_r1mer")]
+
+[node name="Door2" type="Area2D" parent="."]
+position = Vector2(145, 208)
+script = ExtResource("5_3uuvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+shape = SubResource("RectangleShape2D_2xr3t")
+
+[node name="ColorRect" type="ColorRect" parent="Door2"]
+offset_left = -10.0
+offset_top = -11.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0.313726, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
+[connection signal="body_entered" from="Door2" to="Door2" method="_on_body_entered"]

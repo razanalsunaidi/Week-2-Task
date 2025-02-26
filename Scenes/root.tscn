@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_sgc40"]
 [ext_resource type="PackedScene" uid="uid://23yjnlx5cg5c" path="res://Scenes/obstacle.tscn" id="2_kerue"]
 [ext_resource type="PackedScene" uid="uid://dqpcxvrqpirx8" path="res://Scenes/door.tscn" id="3_e1m5k"]
-[ext_resource type="PackedScene" uid="uid://byobex6v0capf" path="res://Scenes/level_2.tscn" id="4_h06fy"]
+[ext_resource type="PackedScene" uid="uid://bk45efxkx6t7j" path="res://kill_zone.tscn" id="4_feam2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iijt6"]
 
@@ -22,6 +22,7 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Obstacle" parent="." instance=ExtResource("2_kerue")]
 position = Vector2(175, 613)
@@ -34,4 +35,7 @@ position = Vector2(993, 358)
 
 [node name="Door" parent="." instance=ExtResource("3_e1m5k")]
 position = Vector2(962, 287)
-next_scene = ExtResource("4_h06fy")
+
+[node name="KillZone" parent="." instance=ExtResource("4_feam2")]
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
