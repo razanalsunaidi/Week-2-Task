@@ -25,6 +25,7 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
+color = Color(0.525327, 0.635294, 1, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Obstacle" parent="." instance=ExtResource("2_snd6g")]
